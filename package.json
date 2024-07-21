@@ -1,0 +1,26 @@
+{
+  "name": "image-rs",
+  "version": "0.1.0",
+  "description": "image-rs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:wasm": "wasm-pack build --release --target web --out-dir ./web",
+    "build:sync": "wasm-pack-sync ./web -d dist --name index",
+    "build": "pnpm run build:wasm && pnpm run build:sync",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.14.11",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.3",
+    "wasm-pack-sync": "^0.1.6"
+  }
+}
