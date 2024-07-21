@@ -1,6 +1,4 @@
-use std::io::{Cursor, Read};
-
-use image::{guess_format, GenericImageView, ImageDecoder};
+use std::io::Cursor;
 use wasm_bindgen::prelude::wasm_bindgen;
 
 use image::io::Reader as ImageReader;
