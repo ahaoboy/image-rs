@@ -8,6 +8,8 @@
     "dist"
   ],
   "scripts": {
+    "bench": "vitest bench",
+    "bench:run": "vitest bench",
     "build:wasm": "wasm-pack build --release --target web --out-dir ./web",
     "build:inline": "wasm-pack-inline ./web -d dist --name index",
     "build": "pnpm run build:wasm && pnpm run build:inline",
@@ -17,6 +19,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@napi-rs/image": "^1.9.2",
     "@types/node": "22.5.5",
     "tsx": "4.19.1",
     "typescript": "5.6.2",

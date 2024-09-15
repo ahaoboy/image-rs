@@ -27,7 +27,8 @@ pub fn decode_webp(pixels: &[u8]) -> Image {
         image::ColorType::Rgba8 => 4,
         image::ColorType::Rgb8 => 3,
         _ => {
-            panic!("invalid color type")
+            // panic!("invalid color type")
+            4
         }
     };
 
