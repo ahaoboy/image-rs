@@ -1,26 +1,13 @@
 use std::io::Cursor;
+use common::Image;
 use wasm_bindgen::prelude::wasm_bindgen;
+use image::ImageReader;
+pub mod encode;
+pub mod common;
 
-use image::io::Reader as ImageReader;
-
-#[wasm_bindgen]
-pub struct Image {
-    _pixels: Vec<u8>,
-    pub width: u32,
-    pub height: u32,
-    pub channel: u32,
-}
 
 #[wasm_bindgen]
-impl Image {
-    #[wasm_bindgen(getter)]
-    pub fn pixels(&self) -> Vec<u8> {
-        self._pixels.clone()
-    }
-}
-
-#[wasm_bindgen]
-pub fn decode(buf: Vec<u8>) -> Image {
+pub fn decode(buf: &[u8]) -> Image {
     let img = ImageReader::new(Cursor::new(buf))
         .with_guessed_format()
         .unwrap()
